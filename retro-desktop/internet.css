@@ -1,0 +1,239 @@
+/* icon */
+
+#icon--internet {
+   grid-column: 3 / 3;
+   grid-row: 1 / 1;
+}
+
+.icon__internet {
+   --icon-internet-border-size: var(--border-size);
+
+   height: 80%;
+   aspect-ratio: 1;
+}
+
+.icon__internet__planet {
+   --icon-internet-planet-border-color: var(--color-black);
+   --icon-internet-planet-sea-color: var(--color-denim);
+   --icon-internet-planet-sea-dark-color: var(--color-delft-blue);
+   --icon-internet-planet-land-color: var(--color-pigment-green);
+   --icon-internet-planet-land-dark-color: var(--color-sea-green);
+
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   background: radial-gradient(circle at 85% 80%, var(--icon-internet-planet-sea-dark-color) 20%, var(--icon-internet-planet-sea-color) 60%);
+   position: relative;
+   border: var(--icon-internet-border-size) solid var(--icon-internet-planet-border-color);
+   overflow: hidden;
+}
+
+.icon__internet__planet__north__continent {
+   border-radius: 0 0 50% 50%;
+   width: 100%;
+   height: 60%;
+   background: linear-gradient(140deg, var(--icon-internet-planet-land-color) 40%, var(--icon-internet-planet-land-dark-color) 55%);
+   clip-path: polygon(0 0, 10% 40%, 15% 40%, 15% 35%, 17% 37%, 10% 60%, 12% 65%, 15% 55%, 17% 58%, 20% 70%, 25% 75%, 30% 50%, 35% 50%, 30% 30%, 35% 35%, 40% 45%, 40% 50%, 45% 50%, 40% 55%, 45% 60%, 50% 60%, 55% 65%, 50% 65%, 50% 45%, 55% 50%, 60% 55%, 60% 60%, 55% 55%, 60% 55%, 65% 60%, 70% 100%, 75% 100%, 65% 80%, 65% 75%, 70% 80%, 75% 75%, 75% 65%, 70% 65%, 70% 50%, 75% 55%, 80% 50%, 75% 50%, 70% 40%, 80% 50%, 95% 80%, 100% 0%);
+   mask: radial-gradient(100% 70% at 40% 0%, transparent 10%, black 10%);
+}
+
+.icon__internet__planet__south__continent {
+   width: 80%;
+   height: 45%;
+   background: linear-gradient(140deg, var(--icon-internet-planet-land-color) 40%, var(--icon-internet-planet-land-dark-color) 55%);
+   clip-path: polygon(10% 10%, 15% 5%, 12% 4%, 15% 3%, 20% 0%, 25% 5%, 23% 8%, 20% 10%, 30% 20%, 35% 18%, 36% 20%, 40% 20%, 45% 25%, 50% 20%, 55% 18%, 55% 15%, 50% 15%, 55% 25%, 60% 25%, 60% 30%, 55% 33%, 60% 35%, 60% 40%, 63% 40%, 65% 45%, 65% 50%, 60% 50%, 70% 60%, 65% 60%, 65% 68%, 60% 75%, 60% 100%, 0 100%);
+}
+
+.icon__internet__planet__white__flare {
+   --icon-internet-planet-white-flare-color: var(--color-baby-powder);
+
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(-90deg, transparent 20%, var(--icon-internet-planet-white-flare-color) 80%);
+   position: absolute;
+   top: 0;
+   border-radius: 50%;
+   mask: radial-gradient(100% 100% at 100% 50%, transparent 70%, black 90%);
+   transform: rotateZ(15deg);
+
+}
+
+.icon__internet__magnifying__glass__container {
+   --icon-internet-magnifying-glass-glass-width: 0.7;
+
+   width: 65%;
+   aspect-ratio: 1;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   z-index: 0;
+   visibility: hidden;
+}
+
+.icon__internet__magnifying__glass__glass {
+   --icon-internet-magnifying-glass-glass-border: var(--color-black);
+   --icon-internet-magnifying-glass-glass-center-color: var(--color-celeste);
+   --icon-internet-magnifying-glass-glass-color: var(--color-sky-blue);
+   --icon-internet-magnifying-glass-glass-edge-color: var(--color-ucla-blue);
+
+   width: calc(var(--icon-internet-magnifying-glass-glass-width) * 100%);
+   aspect-ratio: 1;
+   border: var(--icon-internet-border-size) solid var(--icon-internet-magnifying-glass-glass-border);
+   border-radius: 50%;
+   background: radial-gradient(circle at center, var(--icon-internet-magnifying-glass-glass-center-color) 2%, var(--icon-internet-magnifying-glass-glass-color) 25%, var(--icon-internet-magnifying-glass-glass-color) 60%, var(--icon-internet-magnifying-glass-glass-edge-color) 70%);
+   z-index: 1;
+}
+
+.icon__internet__magnifying__glass__handle {
+   --icon-internet-magnifying-glass-handle-border-color: var(--color-black);
+   --icon-internet-magnifying-glass-handle-light-color: var(--color-redwood);
+   --icon-internet-magnifying-glass-handle-dark-color: var(--color-garnet);
+   --icon-internet-magnifying-glass-handle-width: 0.15;
+   --icon-internet-magnifying-glass-handle-height: 0.8;
+
+   width: calc(var(--icon-internet-magnifying-glass-handle-width) * 100%);
+   height: calc(var(--icon-internet-magnifying-glass-handle-height) * 100%);
+   border: var(--icon-internet-border-size) solid var(--icon-internet-magnifying-glass-handle-border-color);
+   position: absolute;
+   top: calc(var(--icon-internet-magnifying-glass-glass-width) / 2 * 100%);
+   left: calc((var(--icon-internet-magnifying-glass-glass-width) / 2 - var(--icon-internet-magnifying-glass-handle-width) / 2) * 100%);
+   background: radial-gradient(ellipse at 80% 50%, var(--icon-internet-magnifying-glass-handle-light-color) 20%, var(--icon-internet-magnifying-glass-handle-dark-color) 50%);
+   transform-origin: top;
+   transform: rotateZ(-45deg);
+   z-index: -1;
+}
+
+#icon--internet:has(#icon--internet--input:checked) .explore--internet {
+   animation-name: hide-animation;
+   animation-duration: 0s;
+   animation-fill-mode: forwards;
+} 
+
+/* window */
+
+#window--internet {
+   width: clamp(595px, 42%, 630px);
+   height: clamp(340px, 40%, 435px);
+   z-index: 9;
+   display: none;
+}
+
+.window--internet--position {
+   right: 0;
+}
+
+.desktop:has(#icon--internet--input:checked) #window--internet {
+   display: block;
+} 
+
+.window__content--vertical--direction {
+   flex-direction: column;
+}
+
+.window__internet__control__buttons {
+   width: 100%;
+   height: 20%;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+.window__internet__control__button {
+   height: 100%;
+   aspect-ratio: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.window__internet__control__button__drawing {
+   height: 70%;
+   aspect-ratio: 1;
+   position: relative;
+}
+
+.window__internet__control__button__refresh__drawing {
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+
+.window__control__button__drawing__curved__arrow--internet--refresh--adjusted {
+   position: absolute;
+}
+
+.window__control__button__drawing__home {
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+
+.window__control__button__drawing__home__roof {
+   --window-control-button-drawing-home-roof-color: var(--color-black);
+
+   width: 100%;
+   height: 50%;
+   background: conic-gradient(from 135deg at 50% 0%, var(--window-control-button-drawing-home-roof-color) 90deg, transparent 90deg);
+}
+
+.window__control__button__drawing__home__base {
+   --window-control-button-drawing-home-color: var(--color-black);
+
+   height: 50%;
+   width: 100%;
+   background-color: var(--window-control-button-drawing-home-color);
+   clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 100%, 75% 20%, 45% 20%, 45% 100%, 0 100%);
+}
+
+.icon__internet__magnifying__glass__container--large {
+   width: 100%;
+   visibility: visible;
+}
+
+/* https://css-shape.com/star/ */
+.window__control__button__drawing__star {
+   --window-control-button-drawing-star-main-color: var(--color-yellow);
+   --window-control-button-drawing-star-edge-color: var(--color-old-gold);
+
+   width: 100%;
+   aspect-ratio: 1;
+   clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+   background: radial-gradient(var(--window-control-button-drawing-star-main-color) 10%, var(--window-control-button-drawing-star-edge-color) 80%);
+}
+
+.window__internet__address__bar {
+   width: 100%;
+   height: 10%;
+   display: flex;
+   justify-content: space-between;
+   margin-block: 0.5rem;
+}
+
+.window__content__space--vertical--direction {
+   flex-direction: column;
+   overflow: scroll;
+   scrollbar-width: none;
+}
+
+.window__content__space--vertical--direction * {
+   font-family: 'Times New Roman', Times, serif;
+   color: var(--color-black);
+}
+
+#window--internet--error {
+   display: none;
+}
+
+.desktop:has(#icon--internet--input:checked) #window--internet--error {
+   display: none;
+} 
+
+@media (max-width: 1000px) {
+   .desktop:has(#icon--internet--input:checked) #window--internet--error {
+      display: block;
+   } 
+
+   .desktop:has(#icon--internet--input:checked) #window--internet {
+      display: none;
+   } 
+}

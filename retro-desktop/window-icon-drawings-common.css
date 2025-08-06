@@ -1,0 +1,353 @@
+.window__control__button__drawing__arrow {
+   --window-control-button-drawing-arrow-width: 100%;
+   --window-control-button-drawing-arrow-color: var(--color-black);
+
+   width: var(--window-control-button-drawing-arrow-width);
+   aspect-ratio: 1;
+   background: var(--window-control-button-drawing-arrow-color);
+}
+
+.window__control__button__drawing__arrow--top {
+   clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+}
+
+.window__control__button__drawing__arrow--right {
+   clip-path: polygon(0 0, 50% 50%, 0 100%);
+}
+
+.window__control__button__drawing__arrow--left {
+   clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+}
+
+.window__control__button__drawing__arrow--bottom {
+   clip-path: polygon(0 50%, 50% 100%, 100% 50%);
+}
+
+.window__control__button__drawing__arrow--small {
+   --window-control-button-drawing-arrow-width: 40%;
+}
+
+.window__control__button__drawing__navigation {
+   --window-control-button-drawing-navigation-activated-top-color: var(--color-black);
+   --window-control-button-drawing-navigation-activated-bottom-color: var(--color-black);
+
+   width: 90%;
+   aspect-ratio: 1;
+   position: relative;
+   display: flex;
+   align-items: center;
+}
+
+.window__control__button__drawing__navigation > :first-child {
+   background: linear-gradient(180deg, var(--window-control-button-drawing-navigation-activated-top-color) 20%, var(--window-control-button-drawing-navigation-activated-bottom-color) 80%);
+}
+
+.window__control__button__drawing__navigation > :last-child {
+   background: linear-gradient(180deg, var(--window-control-button-drawing-navigation-activated-top-color) 10%, var(--window-control-button-drawing-navigation-activated-bottom-color) 90%);
+}
+
+.window__control__button__drawing__navigation--activated {
+   --window-control-button-drawing-navigation-activated-top-color: var(--color-cambridge-blue);
+   --window-control-button-drawing-navigation-activated-bottom-color: var(--color-tiffany-blue);
+}
+
+.window__control__button__drawing__navigation--deactivated {
+   --window-control-button-drawing-navigation-activated-top-color: var(--color-gray);
+   --window-control-button-drawing-navigation-activated-bottom-color: var(--color-jey);
+}
+
+.window__control__button__drawing__navigation__line {
+   --window-control-button-drawing-navigation-line-color: var(--color-black);
+
+   width: 70%;
+   height: 15%;
+   position: absolute;
+   right: 0;
+   background-color: var(--window-control-button-drawing-navigation-line-color);  /* unnecessary but okay to keep in case of reuse within different context*/
+}
+
+.window__control__button__drawing__curved__arrow {
+   width: 100%;
+   aspect-ratio: 1;
+   position: relative;
+}
+
+.window__control__button__drawing__curved__arrow__line {
+   --window-control-button-drawing-curved-arrow-line-color: var(--color-blue);
+
+   width: 70%;
+   height: 100%;
+   border-radius: 50%;
+   border-top: 2px solid var(--window-control-button-drawing-curved-arrow-line-color);
+   position: absolute;
+   transform: rotate(10deg) skewX(-20deg);
+   right: 15%;
+   right: auto;
+   left: 5%;
+   top: 20%;
+}
+
+.window__control__button__drawing__arrow--top--position, .window__control__button__drawing__arrow--bottom--position {
+   right: 0;
+   position: absolute;
+}
+
+.window__control__button__drawing__arrow--top--position {
+   top: 0;
+}
+
+.window__control__button__drawing__arrow--bottom--position {
+   bottom: 0;
+}
+
+.window__control__button__drawing__arrow--left--position {
+   position: absolute;
+   left: -50%;
+}
+
+.window__control__button__drawing__arrow--left--center--position {
+   position: absolute;
+   bottom: calc(50% - var(--window-control-button-drawing-arrow-width) / 2);
+   left: 0;
+}
+
+.window__control__button__drawing__arrow--blue {
+   --window-control-button-drawing-arrow-color: var(--color-blue);
+}
+
+.window__control__button__drawing__arrow--bottom--left {
+   clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.window__control__button__drawing__properties {
+   --window-control-button-drawing-properties-bullet-points-width: 30%;
+   --window-control-button-drawing-properties-bullet-points-color: var(--color-baby-powder);
+   --window-control-button-drawing-properties-bullet-points-border-color: var(--color-black);
+
+   width: 90%;
+   aspect-ratio: 1;
+   background-color: var(--window-control-button-drawing-properties-bullet-points-color);
+   border: 1px solid var(--window-control-button-drawing-properties-bullet-points-border-color);
+   display: flex;
+}
+
+.window__control__button__drawing__properties__column {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   border: 1px solid var(--color-black);
+}
+
+.window__control__button__drawing__properties__column--horizontal--space--shorter {
+   width: var(--window-control-button-drawing-properties-bullet-points-width);
+}
+
+.window__control__button__drawing__properties__bullet__point {
+   --window-control-button-drawing-properties-bullet-point-color: var(--color-black);
+
+   width: 80%;
+   height: 10%;
+   background-color: var(--color-black);
+}
+
+.window__control__button__drawing__properties__column--horizontal--space--wider {
+   width: calc(100% - var(--window-control-button-drawing-properties-bullet-points-width));
+}
+
+.window__control__button__drawing__folder {
+   --window-control-button-drawing-folder-top-height: 25%;
+
+   width: 90%;
+   aspect-ratio: 1;
+   position: relative;
+}
+
+.window__control__button__drawing__folder__top {
+   --window-control-button-drawing-folder-top-color: var(--color-black);
+
+   height: var(--window-control-button-drawing-folder-top-height);
+   width: 70%;
+   background-color: var(--window-control-button-drawing-folder-top-color);
+   clip-path: polygon(0 100%, 20% 0, 80% 0, 100% 100%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.window__control__button__drawing__folder__top::before {
+   --window-control-button-drawing-folder-top-body-color: var(--color-yellow);
+
+   content: '';
+   display: block;
+   width: 75%;
+   height: 70%;
+   background-color: var(--window-control-button-drawing-folder-top-body-color);
+   clip-path: polygon(0 100%, 15% 0, 85% 0, 100% 100%);
+}
+
+.window__control__button__drawing__folder__bottom {
+   --window-control-button-drawing-folder-bottom-color: var(--color-yellow);
+   --window-control-button-drawing-folder-bottom-border-color: var(--color-black);
+   --window-control-button-drawing-folder-arrow-line-border-size: 1px;
+   --window-control-button-drawing-folder-arrow-line-width: 60%;
+   --window-control-button-drawing-folder-arrow-line-height: 30%;
+
+   width: 100%;
+   height: calc(100% - var(--window-control-button-drawing-folder-top-height));
+   background-color: var(--window-control-button-drawing-folder-bottom-color);
+   border: 1px solid var(--window-control-button-drawing-folder-bottom-border-color);
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.window__control__button__drawing__arrow--upward--position {
+   position: absolute;
+   bottom: calc((100% - var(--window-control-button-drawing-folder-arrow-line-height)) / 2 + var(--window-control-button-drawing-folder-arrow-line-height));
+   left: calc((100% - var(--window-control-button-drawing-folder-arrow-line-width)) / 4 - var(--window-control-button-drawing-folder-arrow-line-border-size)); /* (100 - 60 ) / 2*/
+}
+
+.window__control__button__drawing__folder__arrow__line {
+   --window-control-button-drawing-arrow-line-color: var(--color-black);
+
+   width: var(--window-control-button-drawing-folder-arrow-line-width);
+   height: var(--window-control-button-drawing-folder-arrow-line-height);
+   border-left: var(--window-control-button-drawing-folder-arrow-line-border-size) solid var(--window-control-button-drawing-arrow-line-color);
+   border-bottom: var(--window-control-button-drawing-folder-arrow-line-border-size) solid var(--window-control-button-drawing-arrow-line-color);
+}
+
+.window__control__button__drawing__delete {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+
+.window__control__button__drawing__delete__line {
+   --window-control-button-drawing-delete-line-color: var(--color-black);
+   --window-control-button-drawing-delete-line-rotation-angle: 40deg;
+
+   width: 15%;
+   height: 100%;
+   background-color: var(--window-control-button-drawing-delete-line-color);
+   border-radius: 20px;
+   transform: rotate(calc(-1 * var(--window-control-button-drawing-delete-line-rotation-angle)));
+}
+
+.window__control__button__drawing__delete__line--left {
+   position: absolute;
+   transform: rotate(var(--window-control-button-drawing-delete-line-rotation-angle));
+}
+
+.window__control__button__drawing__copy {
+   width: 100%;
+   aspect-ratio: 1;
+   position: relative;
+}
+
+.window__control__button__drawing__copy__file {
+   --window-control-button-drawing-copy-file-color: var(--color-baby-powder);
+   --window-control-button-drawing-copy-file-border-color: var(--color-black);
+   --window-control-button-drawing-copy-file-border-size: 1px;
+   --window-control-button-drawing-copy-file-fold-size: 30%;
+
+
+   width: 75%;
+   height: 95%;
+   background-color: var(--window-control-button-drawing-copy-file-color);
+   clip-path: polygon(0 0, calc(100% - var(--window-control-button-drawing-copy-file-fold-size)) 0, 100% var(--window-control-button-drawing-copy-file-fold-size), 100% 100%, 0 100%);
+   box-shadow: var(--window-control-button-drawing-copy-file-border-size) var(--window-control-button-drawing-copy-file-border-size) 0px 0px var(--window-control-button-drawing-copy-file-border-color) inset,
+               calc(-1 * var(--window-control-button-drawing-copy-file-border-size)) calc(-1 * var(--window-control-button-drawing-copy-file-border-size)) 0px 0px var(--window-control-button-drawing-copy-file-border-color) inset;
+   padding: 10%;
+   position: absolute;
+}
+
+.window__control__button__drawing__copy__file::before {
+   --window-control-button-drawing-copy-file-lines-color: var(--color-black);
+
+   content: '';
+   display: block;
+   width: 100%;
+   height: 100%;
+   opacity: 0.5;
+   background: linear-gradient(transparent 20%, var(--window-control-button-drawing-copy-file-lines-color) 20%, var(--window-control-button-drawing-copy-file-lines-color) 80%, transparent 80%);
+   background-size: 0.1rem 0.1rem;
+}
+
+.window__control__button__drawing__copy__file::after {
+   --window-control-button-drawing-copy-file-fold-color: var(--color-baby-powder);
+
+   content: '';
+   display: block;
+   width: var(--window-control-button-drawing-copy-file-fold-size);
+   height: var(--window-control-button-drawing-copy-file-fold-size);
+   background-color: var(--window-control-button-drawing-copy-file-fold-color);
+   border-left: var(--window-control-button-drawing-copy-file-border-size) solid var(--window-control-button-drawing-copy-file-border-color);
+   border-bottom: var(--window-control-button-drawing-copy-file-border-size) solid var(--window-control-button-drawing-copy-file-border-color);
+   position: absolute;
+   top: 0;
+   right: 0;
+}
+
+.window__control__button__drawing__copy__file--blue {
+   --window-control-button-drawing-copy-file-border-color: var(--color-blue); /* override */
+}
+
+.window__control__button__drawing__copy__file--bottom--right--position {
+   bottom: 0;
+   right: 0;
+   z-index: 1;
+}
+
+.window__control__button__drawing__folder--small,.window__control__button__drawing__copy__file--small {
+   width: 60%;
+   height: 60%;
+}
+
+.window__control__button__drawing__paste, .window__control__button__drawing__mail__control {
+   width: 100%;
+   aspect-ratio: 1;
+   position: relative;
+   z-index: 0;
+}
+
+.window__control__button__drawing__red__x {
+   --window-control-button-drawing-stop-color: var(--color-red);
+   --window-control-button-drawing-stop-border-color: var(--color-white);
+
+   width: 100%;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   border: 3px solid var(--window-control-button-drawing-stop-border-color);
+   background-color: var(--window-control-button-drawing-stop-color);
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.window__control__button__drawing__red__x::before,  .window__control__button__drawing__red__x::after{
+   --window-control-button-drawing-stop-line-rotation-angle: 45deg;
+
+   content: '';
+   display: block;
+   width: 75%;
+   height: 10%;
+   background-color: var(--color-white);
+   position: absolute;
+   border-radius: 10px;
+}
+
+.window__control__button__drawing__red__x::before {
+   transform: rotate(var(--window-control-button-drawing-stop-line-rotation-angle));
+}
+
+.window__control__button__drawing__red__x::after {
+   transform: rotate(calc(-1 * var(--window-control-button-drawing-stop-line-rotation-angle)));
+}

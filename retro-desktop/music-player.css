@@ -1,0 +1,384 @@
+/* icon */
+
+#icon--music--player {
+   grid-column: 1 / 1;
+   grid-row: 2 / 2;
+}
+
+.icon__music__player {
+   width: 80%;
+   aspect-ratio: 1;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.icon__music__player__disc {
+   --icon-music-player-disc-border-size: var(--border-size);
+   --color-alice-blue: #d9e1ea;
+   --color-french-gray: #b4b9d3;
+   --color-cool-gray: #989bc3;
+   --color-verdigris: #75c0c4;
+   --color-emerald: #78da90;
+   --color-dutch-white: #ebe4bc;
+   --color-wheat: #ebd5a4;
+  
+   width: 100%;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   mask: radial-gradient(5% 5% at center, transparent 100%, black);
+   background: radial-gradient(100% 100% at center, black 8%, white 8.5%, white 15%, black 15.5%, black 17%, transparent 17.5%, transparent calc(50% - var(--icon-music-player-disc-border-size) - 0.5%), black calc(50% - var(--icon-music-player-disc-border-size)), black 50%),
+               conic-gradient(var(--color-alice-blue) 20deg, white 20deg, white 30deg, var(--color-alice-blue) 30deg, var(--color-alice-blue) 35deg, white 35deg, white 55deg, var(--color-alice-blue) 55deg, var(--color-alice-blue) 75deg, var(--color-french-gray) 75deg, var(--color-french-gray) 85deg , var(--color-cool-gray) 85deg, var(--color-cool-gray) 100deg, var(--color-verdigris) 100deg, var(--color-verdigris) 110deg, var(--color-emerald) 110deg, var(--color-emerald) 120deg, var(--color-dutch-white) 120deg, var(--color-dutch-white) 130deg, var(--color-wheat) 130deg, var(--color-wheat) 150deg, var(--color-dutch-white) 150deg, var(--color-dutch-white) 160deg, var(--color-emerald) 160deg, var(--color-emerald) 170deg, var(--color-verdigris) 170deg, var(--color-verdigris) 180deg,
+                              var(--color-alice-blue) 180deg, var(--color-alice-blue) 200deg, white 200deg, white 210deg, var(--color-alice-blue) 210deg, var(--color-alice-blue) 215deg, white 215deg, white 235deg, var(--color-alice-blue) 235deg, var(--color-alice-blue) 255deg, var(--color-french-gray) 255deg, var(--color-french-gray) 265deg, var(--color-cool-gray) 265deg, var(--color-cool-gray) 280deg, var(--color-verdigris) 280deg, var(--color-verdigris) 290deg, var(--color-emerald) 290deg, var(--color-emerald) 300deg, var(--color-dutch-white) 300deg, var(--color-dutch-white) 310deg, var(--color-wheat) 310deg, var(--color-wheat) 330deg, var(--color-dutch-white) 330deg, var(--color-dutch-white) 340deg, var(--color-emerald) 340deg, var(--color-emerald) 350deg, var(--color-verdigris) 350deg, var(--color-verdigris) 360deg);
+}
+
+.icon__music__player__beam__note {
+   --icon-music-player-beam-width: 0.65;
+   --icon-music-player-beam-note-skew-angle: 15deg;
+   --icon-music-player-stem-height: 0.7;
+   --icon-music-player-stem-width: 0.1;
+   --icon-music-player-notehead-width: 0.35;
+
+   width: 40%;
+   aspect-ratio:1;
+   position: absolute;
+   top: 0%;
+   left: -10%;
+   visibility: hidden;
+}
+
+#icon--music--player:has(#icon--music--player--input:checked) .turn--on--music--player {
+   animation-name: hide-animation;
+   animation-duration: 0s;
+   animation-fill-mode: forwards;
+   transform-origin: bottom center;
+} 
+
+.icon__music__player__beam__note * {
+   --icon-music-player-beam-note-color: var(--color-black);
+
+   background-color: var(--icon-music-player-beam-note-color);
+}
+
+.icon__music__player__beam {
+   width: calc(var(--icon-music-player-beam-width) * 100%);
+   height: 20%;
+   transform-origin: top left;
+   transform: skewY(var(--icon-music-player-beam-note-skew-angle));
+   position: absolute;
+   left: calc(var(--icon-music-player-notehead-width) * 100%);
+}
+
+.icon__music__player__stem {
+   height: calc(var(--icon-music-player-stem-height) * 100%);
+   width: calc(var(--icon-music-player-stem-width) * 100%);
+   transform-origin: top left;
+   transform: skewY(var(--icon-music-player-beam-note-skew-angle));
+   position: absolute;
+   top: 0;
+}
+
+.icon__music__player__stem--left {
+   left: calc(var(--icon-music-player-notehead-width) * 100%);
+}
+
+.icon__music__player__stem--right {
+   top: calc(tan(var(--icon-music-player-beam-note-skew-angle)) * var(--icon-music-player-beam-width) * 100%);
+   right: 0;
+}
+
+.icon__music__player__notehead {
+   --icon-music-player-notehead-ellipse-height: 0.4;
+
+   width: calc(var(--icon-music-player-notehead-width) * 100%);
+   aspect-ratio: 1;
+   position: absolute;
+   clip-path: ellipse(50% calc(var(--icon-music-player-notehead-ellipse-height) * 100%));
+   transform: rotateZ(-5deg);
+}
+
+.icon__music__player__notehead--left {
+   top: calc((var(--icon-music-player-stem-height) - var(--icon-music-player-notehead-width) / 2) * 100%);
+   left: calc(var(--icon-music-player-stem-width) * 100%);
+}
+
+.icon__music__player__notehead--right {
+   right: 0;
+   bottom: calc(-1 * var(--icon-music-player-notehead-width) * (var(--icon-music-player-notehead-ellipse-height) / 2) * 100%);
+}
+
+/* window */
+
+#window--music--player {
+   width: clamp(300px, 25%, 380px);
+   height: clamp(260px, 25%, 270px);
+   z-index: 1;
+   display: none;
+}
+
+.window--music--player--position {
+   top: 25%;
+   left: 10%;
+}
+
+.desktop:has(#icon--music--player--input:checked) #window--music--player {
+   display: block;
+} 
+
+.window__music__player__content {
+   --window-music-player-control-buttons-height: 55%;
+
+   width: 100%;
+   height: 100%;
+   padding: 0.5rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.window__music__player__control__buttons {
+   width: 100%;
+   height: var(--window-music-player-control-buttons-height);
+   display: flex;
+   justify-content: space-between;
+}
+
+.window__music__player__volume__control__buttons {
+   width: 10%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.window__control__button__drawing__plus {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   display: flex;
+   justify-content: inherit;
+   align-items: inherit;
+}
+
+.window__control__button__drawing__plus::before, .window__control__button__drawing__plus::after {
+   --window-control-button-drawing-plus-color: var(--color-black);
+
+   content: '';
+   display: block;
+   width: 75%;
+   height: 15%;
+   background-color: var(--window-control-button-drawing-plus-color);
+}
+
+.window__control__button__drawing__plus::after {
+   position: absolute;
+   transform: rotate(90deg);
+}
+
+.window__control__minus__button {
+   --window-control-button-drawing-minus-color: var(--color-black);
+
+   width: 75%;
+   height: 15%;
+   background-color: var(--window-control-button-drawing-minus-color);
+}
+
+.window__control__button__drawing__dash--center--align {
+   align-self: center;
+}
+
+.window__music__player__volume {
+   --window-music-player-volume-color: var(--color-blue);
+   --window-music-player-volume-border-color: var(--color-platinum);
+   --window-music-player-volume-border-top-left-color: var(--color-black);
+
+   height: 100%;
+   width: 2%;
+   background: linear-gradient(0deg, var(--window-music-player-volume-color) 50%, transparent 50%);
+   border: 2px inset var(--window-music-player-volume-border-color);
+   border-top: 2px solid var(--window-music-player-volume-border-top-left-color);
+   border-left: 2px solid var(--window-music-player-volume-border-top-left-color);
+}
+
+.window__music__player__album__cover {
+   --window-music-player-album-cover-color: var(--color-black);
+
+   height: 100%;
+   aspect-ratio: 1;
+   background-color: var(--window-music-player-album-cover-color);
+}
+
+.window__music__player__music__control__buttons {
+   --window-music-player-music-control-button-width: calc(100% / 5);
+   --window-music-player-music-control-button-height: 45%;
+   
+   width: 57%;
+   height: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   row-gap: calc(100% - var(--window-music-player-music-control-button-height) * 2);
+}
+
+.music--player--control--button {
+   --window-control-button-size-customized-width: var(--window-music-player-music-control-button-width); /* override */
+   --window-control-button-size-customized-height: var(--window-music-player-music-control-button-height); /* override */
+}
+
+.music--player--pause--control--button {
+   --window-control-button-size-customized-width: calc(var(--window-music-player-music-control-button-width) * 3) !important; /* override */
+   --window-control-button-size-customized-height: var(--window-music-player-music-control-button-height); /* override */
+}
+
+.window__control__button__drawing__pause {
+   width: 15%;
+   height: 65%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.window__control__button__drawing__pause::before, .window__control__button__drawing__pause::after {
+   --window-control-button-drawing-pause-color: var(--color-black);
+
+   content: '';
+   display: block;
+   width: 40%;
+   height: 100%;
+   background-color: var(--window-control-button-drawing-pause-color);
+}
+
+.window__control__button__drawing__shuffle {
+   --window-control-button-drawing-shuffle-arrow-y-distance: -35%;
+   --window-control-button-drawing-shuffle-arrow-x-distance: -15%;
+
+   width: 100%;
+   height: 100%;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.window__control__button__drawing__shuffle::before, .window__control__button__drawing__shuffle::after {
+   --window-control-button-drawing-shuffle-color: var(--color-black);
+
+   content: '';
+   display: block;
+   height: 100%;
+   width: 10%;
+   position: absolute;
+   background-color: var(--window-control-button-drawing-shuffle-color);
+}
+
+.window__control__button__drawing__shuffle::before {
+   transform: rotate(45deg);
+}
+
+.window__control__button__drawing__shuffle::after {
+   transform: rotate(-45deg);
+}
+
+.window__control__button__drawing__arrow--top--right {
+   clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.window__control__button__drawing__arrow--bottom--right {
+   clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.window__control__button__drawing__arrow--bottom--center--position {
+   position: absolute;
+   right: calc(50% - 1px);
+   bottom: calc((-1 * var(--window-control-button-drawing-arrow-width) / 2) * var(--window-control-button-drawing-repeat-height) + var(--window-control-button-drawing-repeat-circle-border-size) / 2);
+}
+
+.window__control__button__drawing__arrow--large {
+   --window-control-button-drawing-arrow-width: 100% !important; /* override */
+
+   height: 100%;
+}
+
+.window__control__button__drawing__repeat {
+   --window-control-button-drawing-repeat-circle-border-size: 3px;
+   --window-control-button-drawing-repeat-height: 0.8;
+
+   height: calc(var(--window-control-button-drawing-repeat-height) * 100%);
+   height: 90%;
+   aspect-ratio: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+
+.window__control__button__drawing__repeat__circle {
+   --window-control-button-drawing-repeat-circle-color: var(--color-black);
+
+   width: 100%;
+   height: 100%;
+   border: var(--window-control-button-drawing-repeat-circle-border-size) solid var(--window-control-button-drawing-repeat-circle-color);
+   border-radius: 50%;
+   mask: conic-gradient(from 180deg at 50% 50%, transparent 45deg, black 45deg);
+}
+
+.window__control__button__drawing__prev {
+   --window-control-button-drawing-prev-color: var(--color-black);
+
+   width: 100%;
+   aspect-ratio: 1;
+   display: flex;
+   align-items: center;
+   position: relative;
+   border: 2px solid var(--window-control-button-drawing-prev-color);
+}
+
+/* https://verpex.com/blog/website-tips/css-shapes-the-heart */
+.window__control__button__drawing__favorite {
+   --window-control-button-drawing-favorite-color: var(--color-black);
+
+   width: 80%;
+   aspect-ratio: 1; 
+   background:
+      radial-gradient(at 70% 31%,var(--window-control-button-drawing-favorite-color) 29%,#0000 30%),
+      radial-gradient(at 30% 31%,var(--window-control-button-drawing-favorite-color) 29%,#0000 30%),
+      linear-gradient(var(--window-control-button-drawing-favorite-color) 0 0) bottom/100% 50% no-repeat;
+  clip-path: polygon(-43% 0,50% 91%, 143% 0);
+}
+
+.window__music__player__music__info {
+   width: 100%;
+   height: calc(100% - var(--window-music-player-control-buttons-height) - 5%);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.window__music__player__music__info__piece {
+   width: 100%;
+   height: 45%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.window__body__text--music--info--label {
+   margin: auto 0;
+   width: 25%;
+}
+
+#window--music--player--error {
+   display: none;
+}
+
+.desktop:has(#icon--music--player--input:checked) #window--music--player--error {
+   display: none;
+} 
+
+@media (max-width: 1000px) {
+   .desktop:has(#icon--music--player--input:checked) #window--music--player--error {
+      display: block;
+   } 
+
+   .desktop:has(#icon--music--player--input:checked) #window--music--player {
+      display: none;
+   } 
+}
