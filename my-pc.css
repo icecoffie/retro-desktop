@@ -1,0 +1,397 @@
+/* icon */
+
+#icon--my--pc {
+   grid-column: 1 / 1;
+   grid-row: 1 / 1;
+}
+
+.icon__pc {
+   --icon-pc-part-monitor-width: 0.75;
+   --icon-pc-part-monitor-height: 0.6;
+   --icon-pc-part-monitor-top-side-height: 0.1;
+
+   --icon-pc-part-chassis-width: 0.85;
+   --icon-pc-part-chassis-height: 0.4;
+   --icon-pc-part-chassis-top-side-height: 0.25;
+
+   width: 90%;
+   aspect-ratio: 1;
+   position: relative;
+}
+
+.icon__pc__part {
+   /* we divide height by ratio to get the equivalent in width (because we are in width context) and multiply by 95% because the parent width is reduced*/
+   /* multiplication by tangent is to get the opposite size (formula: tan = opp/adj)*/
+   --icon-pc-part-side-border-color: var(--color-black);
+   --icon-pc-part-side-border: var(--border-size);
+   --icon-pc-part-ratio: calc(var(--icon-pc-part-width) / var(--icon-pc-part-height));
+   --icon-pc-part-top-side-skew-angle: -50deg;
+   --icon-pc-part-top-side-height-to-width-equivalent: calc(var(--icon-pc-part-top-side-height) / var(--icon-pc-part-ratio));
+   --icon-pc-part-top-side-shear: calc(-1 * tan(var(--icon-pc-part-top-side-skew-angle)) * var(--icon-pc-part-top-side-height-to-width-equivalent));
+
+   width: calc(var(--icon-pc-part-width) * 100%);
+   height: calc(var(--icon-pc-part-height) * 100%);
+   position: relative;
+   z-index: 0;
+}
+
+.icon__pc__part--monitor {
+   --icon-pc-part-width: var(--icon-pc-part-monitor-width);
+   --icon-pc-part-height: var(--icon-pc-part-monitor-height);
+   --icon-pc-part-top-side-height: var(--icon-pc-part-monitor-top-side-height);
+
+   z-index: 2;
+   margin-left: calc(((1 - var(--icon-pc-part-width)) / 2 * 100%));
+}
+
+.icon__pc__part__top__side {
+   --icon-pc-part-top-side-color: var(--color-silver);
+   --icon-pc-part-top-side-border-color: var(--color-black);
+
+   width: calc(100% - (var(--icon-pc-part-top-side-shear) * 100%));
+   height: calc(var(--icon-pc-part-top-side-height) * 100%);
+   transform-origin: bottom;
+   transform: skewX(var(--icon-pc-part-top-side-skew-angle));
+   background-color: var(--icon-pc-part-top-side-color);
+   border: var(--icon-pc-part-side-border) solid var(--icon-pc-part-side-border-color);
+}
+
+.icon__pc__part__right__side {
+   --icon-pc-part-right-side-color: var(--color-dim-gray);
+   --icon-pc-part-right-side-skew-angle: calc(90deg - var(--icon-pc-part-top-side-skew-angle));
+
+   width: calc((var(--icon-pc-part-top-side-height-to-width-equivalent) * -1 * tan(var(--icon-pc-part-top-side-skew-angle))) * 100%);
+   height: calc(100% - (var(--icon-pc-part-top-side-height)) * 100%);
+   position: absolute;
+   right: 0;
+   top: 0;
+   transform-origin: top right;
+   transform: skewY(var(--icon-pc-part-right-side-skew-angle));
+   background-color: var(--icon-pc-part-right-side-color); 
+   border: var(--icon-pc-part-side-border) solid var(--icon-pc-part-side-border-color);
+}
+
+.icon__pc__part__front__side {
+   --icon-pc-part-right-side-color: var(--color-platinum);
+
+   height: calc(100% - var(--icon-pc-part-top-side-height) * 100%);
+   width: calc(100% - var(--icon-pc-part-top-side-shear) * 100%);
+   position: absolute;
+   top: calc(var(--icon-pc-part-top-side-height) * 100%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--icon-pc-part-right-side-color);
+   border: var(--icon-pc-part-side-border) solid var(--icon-pc-part-side-border-color);
+}
+
+.icon__pc__screen {
+   --icon-pc-screen-color: var(--color-dark-cyan);
+   --icon-pc-screen-shadow-color: var(--color-brunswick-green);
+   --icon-pc-screen-shadow-size: 0.05;
+
+   width: 85%;
+   height: 75%;
+   background-color: var(--icon-pc-screen-color);
+   position: relative;
+}
+
+.icon__pc__screen::before {
+   content: '';
+   display: block;
+   width: 100%;
+   height: calc(var(--icon-pc-screen-shadow-size) * 100%);
+   background-color: var(--icon-pc-screen-shadow-color);
+}
+
+.icon__pc__screen::after {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 0;
+   width: calc(var(--icon-pc-screen-shadow-size) * 100%);
+   height: 100%;
+   background-color: var(--icon-pc-screen-shadow-color);
+}
+
+.icon__pc__screen__window {
+   --icon-pc-screen-window-color: var(--color-white);
+   --icon-pc-screen-window-top-bar-color: var(--color-black);
+   --icon-pc-screen-window-left-bar-color: var(--color-dim-gray);
+   
+   width: 50%;
+   height: 35%;
+   background-color: var(--icon-pc-screen-window-color);
+   position: absolute;
+   top: 30%;
+   left: 20%;
+   background: linear-gradient(to bottom, var(--icon-pc-screen-window-top-bar-color) 0, var(--icon-pc-screen-window-top-bar-color) 20%, transparent 15%),
+               linear-gradient(to right, var(--icon-pc-screen-window-left-bar-color) 0, var(--icon-pc-screen-window-left-bar-color) 15%, white 10%);
+   visibility: hidden;
+}
+
+#icon--my--pc:has(#icon--my--pc--input:checked) .icon__pc__screen__window.turn--on--pc {
+   animation-name: hide-animation;
+   animation-duration: 0s;
+   animation-fill-mode: forwards;
+} 
+
+.icon__pc__part--chassis {
+   --icon-pc-part-width: var(--icon-pc-part-chassis-width);
+   --icon-pc-part-height: var(--icon-pc-part-chassis-height);
+   --icon-pc-part-top-side-height: var(--icon-pc-part-chassis-top-side-height);
+   /*--pc-part-monitor-shadow-edge-height: calc((var(--pc-part-monitor-height) * var(--pc-part-base-size) * var(--pc-part-base-shadow-size-difference)) + (var(--pc-part-monitor-height) * var(--pc-part-base-size) * (1 - var(--pc-part-monitor-top-side-height))));*/
+   --icon-pc-part-monitor-bottom-edge: calc(var(--icon-pc-part-monitor-top-side-height) * var(--icon-pc-part-monitor-height));
+
+   bottom: calc(var(--icon-pc-part-monitor-bottom-edge) * 100%) ;
+   margin-left: calc((1 - var(--icon-pc-part-width)) / 2 * 100%);
+   position: absolute;
+   z-index: 1;
+}
+
+.icon__pc__part__front__side--spaced {
+   display: flex;
+   justify-content: space-around;
+}
+
+.icon__pc__power__button {
+   --icon-pc-power-button-color: var(--color-office-green);
+
+   height: 25%;
+   aspect-ratio: 1;
+   background-color: var(--icon-pc-power-button-color);
+}
+
+#icon--my--pc:has(#icon--my--pc--input:checked) .icon__pc__power__button.turn--on--pc {
+   --icon-pc-power-button-color: var(--color-green);
+} 
+
+.icon__pc__floppy__disc__slot {
+   --icon-pc-floppy-disc-slot-open-lid-color: var(--color-dim-gray);
+   --icon-pc-floppy-disc-slot-open-inside-color: var(--color-black);
+   --icon-pc-floppy-disc-slot-close-color: var(--color-gray);
+
+   height: 25%;
+   width: 30%;
+   background: linear-gradient(var(--icon-pc-floppy-disc-slot-open-lid-color) 50%, var(--icon-pc-floppy-disc-slot-open-inside-color) 50%);
+}
+
+#icon--my--pc:has(#icon--my--pc--input:checked) .icon__pc__floppy__disc__slot.turn--on--pc {
+   background: var(--icon-pc-floppy-disc-slot-close-color);
+} 
+
+/* window */
+
+#window--my--pc {
+   width: clamp(300px, 30%, 460px);
+   height: clamp(280px, 30%, 350px);
+   display: none;
+}
+
+.window--my--pc--position {
+   left: 5%;
+}
+
+.desktop:has(#icon--my--pc--input:checked) #window--my--pc {
+   display: block;
+} 
+
+.icon__pc--small {
+   --icon-pc-part-monitor-width: 0.7; /* override */
+   --icon-pc-part-monitor-height: 0.6; /* override */
+   --icon-pc-part-monitor-top-side-height: 0.1; /* override */
+
+   --icon-pc-part-chassis-width: 0.87; /* override */
+   --icon-pc-part-chassis-height: 0.39; /* override */
+   --icon-pc-part-chassis-top-side-height: 0.21; /* override */
+}
+
+.icon__pc__screen__window--small {
+   width: 60%;
+   height: 40%;
+   background: var(--icon-pc-screen-window-color);
+   border: 1px solid var(--color-black);
+   visibility: visible;
+}
+
+.window__my__pc__drive__readers {
+   width: 100%;
+   height: 100%;
+   margin-top: 5%;
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+
+.window__my__pc__drive__reader {
+   --window-my-pc-drive-reader-width: 0.72;
+   --window-my-pc-drive-reader-height: 0.4;
+   --window-my-pc-drive-reader-top-side-height: 0.1;
+   --window-my-pc-drive-reader-floppy-disc-indent-width: 0.8;
+
+   min-width: 100px;
+   height: 60%;
+   flex-basis: 33%;
+   aspect-ratio: 1;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.icon__pc__part--drive--reader {
+   --icon-pc-part-width: var(--window-my-pc-drive-reader-width);
+   --icon-pc-part-height: var(--window-my-pc-drive-reader-height);
+   --icon-pc-part-top-side-height: var(--window-my-pc-drive-reader-top-side-height);
+}
+
+.window__my__pc__drive__reader__front__side {
+   width: 100%;
+   height: 30%;
+   bottom: 10%;
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.window__my__pc__drive__reader__indent {
+   --window-my-pc-drive-reader-indent-top-color: var(--color-dim-gray);
+   --window-my-pc-drive-reader-indent-bottom-color: var(--color-white);
+   --window-my-pc-drive-reader-floppy-disc-indent-height: 0.4;
+
+   content: '';
+   display: block;
+   width: calc(var(--window-my-pc-drive-reader-floppy-disc-indent-width) * 100%);
+   height: calc(var(--window-my-pc-drive-reader-floppy-disc-indent-height) * 100%);
+   background: linear-gradient(var(--window-my-pc-drive-reader-indent-top-color) 45%, var(--window-my-pc-drive-reader-indent-bottom-color) 45%);
+}
+
+.window__my__pc__drive__reader__floppy__disc__slot {
+   --window-my-pc-floppy-disc-slot-open-lid-color: var(--color-dim-gray);
+   --window-my-pc-floppy-disc-slot-open-inside-color: var(--color-black);
+   --window-my-pc-drive-reader-floppy-disc-slot-width: 0.25;
+   --window-my-pc-drive-reader-floppy-disc-slot-height: 0.65;
+
+   content: '';
+   display: block;
+   width: calc(var(--window-my-pc-drive-reader-floppy-disc-slot-width) * 100%);
+   height: calc(var(--window-my-pc-drive-reader-floppy-disc-slot-height) * 100%);
+   background: linear-gradient(var(--window-my-pc-floppy-disc-slot-open-lid-color) 35%, var(--window-my-pc-floppy-disc-slot-open-inside-color) 35%);
+   position: absolute;
+}
+
+.window__my__pc__drive__reader__signal {
+   --window-my-pc-drive-reader-signal-color: var(--color-red);
+
+   width: 7%;
+   height: 25%;
+   position: absolute;
+   right: calc((1 - var(--window-my-pc-drive-reader-floppy-disc-indent-width)) / 2 * 100%);
+   top: 20%;
+   background-color: var(--window-my-pc-drive-reader-signal-color);
+}
+
+.window__my__pc__drive__reader__signal--green {
+   --window-my-pc-drive-reader-signal-color: var(--color-office-green); /* override */
+}
+
+.window__floppy__disc {
+   --window-floppy-disc-color: var(--color-gray);
+   --window-floppy-disc-shadow-color: var(--color-black);
+   --window-floppy-disc-padding: 0.05rem;
+   --window-floppy-disc-label-height: 40%;
+   --window-floppy-disc-spindle-height: 40%;
+
+   width: 30%;
+   aspect-ratio: 1;
+   position: absolute;
+   right: 0;
+   top: 0;
+   background-color: var(--window-floppy-disc-color);
+   padding: var(--window-floppy-disc-padding);
+   display: flex;
+   justify-content: center;
+   box-shadow: 1px 1px 0px 0px var(--window-floppy-disc-shadow-color);
+}
+
+.window__floppy__disc__label {
+   --window-floppy-disc-label-color: var(--color-white);
+
+   width: 100%;
+   height: var(--window-floppy-disc-label-height);
+   background-color: var(--window-floppy-disc-label-color);
+}
+
+.window__floppy__disc__spindle {
+   --window-floppy-disc-spindle-color: var(--color-gray);
+   --window-floppy-disc-spindle-center-color: var(--color-white);
+   --window-floppy-disc-spindle-right-shadow-color: var(--color-white);
+   --window-floppy-disc-spindle-left-shadow-color: var(--color-black);
+
+   width: var(--window-floppy-disc-spindle-height);
+   aspect-ratio: 1;   
+   background: radial-gradient(circle at center, var(--window-floppy-disc-spindle-center-color) 10%, var(--window-floppy-disc-spindle-color) 15%);
+   box-shadow: -1px 0px 1px 0px var(--window-floppy-disc-spindle-right-shadow-color) inset,
+               1px 0px 1px 0px var(--window-floppy-disc-spindle-left-shadow-color) inset;
+   border-radius: 50%;
+   position: absolute;
+   top: calc(var(--window-floppy-disc-label-height) - var(--window-floppy-disc-spindle-height) / 2);
+}
+
+.window__floppy__disc__read__write__area {
+   --window-floppy-disc-read-write-area-color: var(--color-black);
+   --window-floppy-disc-read-write-area-shadow-color: var(--color-white);
+   --window-floppy-disc-read-write-width: 15%;
+   --window-floppy-disc-read-write-position-difference: 5%;
+
+   width: var(--window-floppy-disc-read-write-width);
+   height: 30%;
+   background-color: var(--window-floppy-disc-read-write-area-color);
+   box-shadow: -0.8px 0px 0.5px 0px var(--window-floppy-disc-read-write-area-shadow-color) inset;
+   border-radius: 10px;
+   position: absolute;
+   bottom: 10%;
+   top: calc(var(--window-floppy-disc-label-height) + var(--window-floppy-disc-spindle-height) / 2 + var(--window-floppy-disc-read-write-position-difference));
+   right: calc(50% - var(--window-floppy-disc-read-write-width) / 2);
+}
+
+.window__control__button--my--pc--scrollbar {
+   height: 40%;
+   width: 100%;
+}
+
+.icon__pc__part__side--small--border {
+   --icon-pc-part-side-border: 1px; /* override */
+}
+
+.icon__pc__part__side--no--border {
+   --icon-pc-part-side-border: 0px; /* override */
+}
+
+.window__body__text--drive--reader--label {
+   margin: 0 0;
+   font-size: var(--step--2);
+   text-align: center;
+   margin-top: 5%;
+}
+
+#window--my--pc--error {
+   display: none;
+}
+
+.desktop:has(#icon--my--pc--input:checked) #window--my--pc--error {
+   display: none;
+} 
+
+@media (max-width: 1000px) {
+   .desktop:has(#icon--my--pc--input:checked) #window--my--pc--error {
+      display: block;
+   } 
+
+   .desktop:has(#icon--my--pc--input:checked) #window--my--pc {
+      display: none;
+   } 
+}
