@@ -1,0 +1,181 @@
+@import url(window.css);
+@import url(my-pc.css);
+@import url(music-player.css);
+@import url(pictures.css);
+@import url(mail.css);
+@import url(text-editor.css);
+@import url(text-editor-file.css);
+@import url(minesweeper.css);
+@import url(tic-tac-toe.css);
+@import url(internet.css);
+@import url(console.css);
+@import url(utility.css);
+
+@font-face {
+   font-family: IBM3270;
+   src: url(fonts/3270.ttf);
+}
+
+@font-face {
+   font-family: 'Digital Numbers';
+   src: url(fonts/DigitalNumbers-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Comic Relief';
+  src: url(fonts/ComicRelief-Regular.ttf);
+}
+
+:root {
+   --ff-3270: IBM3270;
+   --ff-digital-numbers: 'Digital Numbers';
+   --ff-comic-relief: "Comic Relief";
+
+   --color-jey: #3a3a39;
+   --color-dim-gray: #666666;
+   --color-gray: #808080;
+   --color-silver: #cccccc;
+   --color-platinum: #eaeaea;
+   --color-blue: #100EEB;
+   --color-yellow: #f4d103;
+   --color-old-gold: #a5a311;
+   --color-green: #00FF00;
+   --color-office-green: #008201;
+   --color-baby-powder: #f0f3ef;
+   --color-black: #000000;
+   --color-white: #ffffff;
+   --color-red: #ff0000;
+   --color-dark-cyan: #289499;
+   --color-navy-blue: #00007c;
+   --color-brunswick-green: #163a34;
+   --color-auburn: #a02b31;
+   --color-cornsilk: #f9f5dd;
+   --color-denim: #3e5eab;
+   --color-delft-blue: #1d3160;
+   --color-pigment-green: #19ae50;
+   --color-sea-green: #1a8351;
+   --color-celeste: #b4f2f9;
+   --color-sky-blue: #71c0d6;
+   --color-ucla-blue: #47708f;
+   --color-celeste: #b4f2f9;
+   --color-sky-blue: #71c0d6;
+   --color-ucla-blue: #47708f;
+   --color-garnet: #7b383b;
+   --color-redwood: #b06769;
+   --color-risd-blue: #0051FF;
+   --color-persian-blue: #0f3faf;
+   --color-cambridge-blue: #77A797;
+   --color-tiffany-blue: #a6d1c2;
+
+   /* @link https://utopia.fyi/type/calculator?c=375,16,1.2,600,20,1.2,4,4,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+   --step--4: clamp(0.4823rem, 0.2813rem + 0.8573vw, 0.6028rem);
+   --step--3: clamp(0.5787rem, 0.3376rem + 1.0288vw, 0.7234rem);
+   --step--2: clamp(0.6944rem, 0.4051rem + 1.2346vw, 0.8681rem);
+   --step--1: clamp(0.8333rem, 0.4861rem + 1.4815vw, 1.0417rem);
+   --step-0: clamp(1rem, 0.5833rem + 1.7778vw, 1.25rem);
+   --step-1: clamp(1.2rem, 0.7rem + 2.1333vw, 1.5rem);
+   --step-2: clamp(1.44rem, 0.84rem + 2.56vw, 1.8rem);
+   --step-3: clamp(1.728rem, 1.008rem + 3.072vw, 2.16rem);
+   --step-4: clamp(2.0736rem, 1.2096rem + 3.6864vw, 2.592rem);
+}
+
+@keyframes hide-animation {
+   from { visibility: hidden; }
+   to { visibility: visible; }
+}
+
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+body {
+   height: 100svh;
+   background-color: var(--color-blue);
+   margin: 0 0;
+   font-family: var(--ff-3270);
+}
+
+h1, h2 {
+   margin: 0 0;
+}
+
+p {
+   margin: auto 0;
+   color: var(--color-white);
+   font-size: var(--step-0);
+}
+
+::selection {
+   color: var(--color-white);
+   background-color: var(--color-navy-blue);
+}
+
+input {
+   appearance: none;
+   margin: 0 0;
+   padding: 0 0;
+   display: none;
+}
+
+label {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   z-index: 1;
+   display: block;
+}
+
+label {
+   cursor: pointer;
+}
+
+.desktop {
+   --border-size: 2px;
+
+   position: relative;
+   height: 100%;
+   display: flex;
+}
+
+.icons {
+   min-width: 375px;
+   max-width: 400px;
+   display: grid;
+   height: 100%;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(7, 1fr);
+   gap: .5rem;
+   padding: 0 1rem;
+}
+
+.icon {
+   width: 100%;
+   aspect-ratio: 1;
+   min-width: 100px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+
+#icon--mail {
+   grid-column: 1 / 1;
+   grid-row: 4 / 4;
+}
+
+.windows {
+   width: 100%;
+   height: 100%;
+   z-index: 0;
+   position: relative;
+}
+
+@media (max-width: 1000px) {
+   .windows {
+      position: absolute;
+      height: 25%;
+      bottom: 0;
+   }
+}
